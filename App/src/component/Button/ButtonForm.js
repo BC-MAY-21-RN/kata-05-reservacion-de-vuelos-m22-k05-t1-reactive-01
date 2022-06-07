@@ -1,14 +1,12 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import {styleButton} from './style';
 
-const ButtonForm = props => {
+const ButtonForm = ({title, onPress}) => {
   return (
-    <View style={styleButton.container}>
-      <TouchableOpacity>
-        <Text style={styleButton.text}>{props.title}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity style={styleButton.container} onPress={onPress}>
+      <Text style={styleButton.text}>{title}</Text>
+    </TouchableOpacity>
   );
 };
 export default ButtonForm;

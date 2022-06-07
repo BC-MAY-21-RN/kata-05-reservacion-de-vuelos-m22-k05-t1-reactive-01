@@ -1,13 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import IconGoogle from '../../../assets/icon/google.svg';
 import {styleButton} from './style';
-const ButtonGoogle = props => {
+const ButtonGoogle = ({title, onPress}) => {
   return (
-    <View style={styleButton.container}>
+    <TouchableOpacity style={styleButton.container} onPress={onPress}>
       <IconGoogle width={25} height={25} />
-      <Text style={styleButton.text}>{props.title}</Text>
-    </View>
+      <Text style={styleButton.text}>{title}</Text>
+    </TouchableOpacity>
   );
 };
 export default ButtonGoogle;
