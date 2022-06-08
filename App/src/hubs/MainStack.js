@@ -3,13 +3,14 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../screen/Home/Home';
 import Login from '../screen/Login/Login';
-import SignIn from "../screen/SignIn/SignIn"
+import SignIn from '../screen/SignIn/SignIn';
 export default function mainStack() {
   const Stack = createNativeStackNavigator();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login"
+      <Stack.Navigator
+        initialRouteName="SignIn"
         screenOptions={{
           headerShown: false,
         }}>

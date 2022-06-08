@@ -1,12 +1,14 @@
-import {Text, View, Linking} from 'react-native';
+import {Text, View, TouchableOpacity, Alert} from 'react-native';
 import {styles} from './style';
 import React from 'react';
 
-const Footer = ({title, redirect,navigation,route}) => {
+const Footer = ({title, redirect, navigation, route}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{title}</Text>
-      <Text style={styles.redirect} onPress={()=>navigation.navigate(rout)}> {redirect}</Text>
+      <TouchableOpacity onPress={() => navigation.navigate(route)}>
+        <Text style={styles.redirect}>{redirect}</Text>
+      </TouchableOpacity>
     </View>
   );
 };

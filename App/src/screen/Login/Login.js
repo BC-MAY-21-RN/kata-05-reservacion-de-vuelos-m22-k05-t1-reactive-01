@@ -6,7 +6,7 @@ import ButtonGoogle from '../../component/ButtonGoogle/ButtonGoogle';
 import Footer from '../../component/Footer/Footer';
 import Input from '../../component/Input/Input';
 
-const Login = (navigation) => {
+const Login = ({navigation}) => {
   const [state, setstate] = useState({
     email: '',
     password: '',
@@ -41,7 +41,12 @@ const Login = (navigation) => {
         <Text style={styles.textButtonGroup}> or </Text>
         <ButtonGoogle title="Login with Google" />
       </View>
-      <Footer title="You need create account" redirect="Signup" navegation={navegation} route="SignIn" />
+      <Footer
+        title="You need create account"
+        redirect="Signup"
+        navigation={navigation}
+        route="SignIn"
+      />
     </View>
   );
 };
