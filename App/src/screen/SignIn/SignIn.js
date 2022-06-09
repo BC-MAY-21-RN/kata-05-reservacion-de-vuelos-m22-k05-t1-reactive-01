@@ -36,13 +36,13 @@ const SignIn = ({navigation}) => {
           keyboardType="email-address"
         />
         <Input
-          title="Email"
+          title="Email*"
           textContentType="emailAddress"
           keyboardType="email-address"
         />
 
         <Input
-          title="Password"
+          title="Password*"
           textContentType="password"
           secureTextEntry={true}
           onChangeText={value => handleChangeText('password', value)}
@@ -59,13 +59,14 @@ const SignIn = ({navigation}) => {
           terms="Terms"
           and="and"
           privacy="Privacy Policy"
+          asterisk="*"
         />
         <ChBox label="Subscribe for select product updates" />
       </View>
       <View style={styles.containerButton}>
-        <ButtonForm title="Login" onPress={() => login()} />
+        <ButtonForm title="Sing Up" onPress={() => login()} />
         <Text style={styles.textButtonGroup}> or </Text>
-        <ButtonGoogle title="Sign U with Google" />
+        <ButtonGoogle title="Sign Up with Google" />
       </View>
       <Footer
         title="Already have an account?"

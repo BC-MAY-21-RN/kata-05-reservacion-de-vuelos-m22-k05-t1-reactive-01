@@ -24,13 +24,13 @@ const Login = ({navigation}) => {
       </View>
       <View style={styles.containerInput}>
         <Input
-          title="Email"
+          title="Email*"
           onChangeText={value => handleChangeText('email', value)}
           textContentType={'emailAddress'}
           keyboardType="email-address"
         />
         <Input
-          title="Password"
+          title="Password*"
           textContentType="password"
           secureTextEntry={true}
           onChangeText={value => handleChangeText('password', value)}
