@@ -6,7 +6,7 @@ import ButtonGoogle from '../../component/ButtonGoogle/ButtonGoogle';
 import Footer from '../../component/Footer/Footer';
 import Input from '../../component/Input/Input';
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [state, setstate] = useState({
     email: '',
     password: '',
@@ -24,13 +24,13 @@ const Login = () => {
       </View>
       <View style={styles.containerInput}>
         <Input
-          title="Email"
+          title="Email*"
           onChangeText={value => handleChangeText('email', value)}
           textContentType={'emailAddress'}
           keyboardType="email-address"
         />
         <Input
-          title="Password"
+          title="Password*"
           textContentType="password"
           secureTextEntry={true}
           onChangeText={value => handleChangeText('password', value)}
@@ -41,7 +41,12 @@ const Login = () => {
         <Text style={styles.textButtonGroup}> or </Text>
         <ButtonGoogle title="Login with Google" />
       </View>
-      <Footer title="You need create account" redirect="Signup" />
+      <Footer
+        title="You need create account"
+        redirect="Signup"
+        navigation={navigation}
+        route="SignIn"
+      />
     </View>
   );
 };
