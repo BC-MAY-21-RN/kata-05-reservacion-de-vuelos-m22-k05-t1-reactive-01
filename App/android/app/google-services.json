@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1023121760646",
+    "project_id": "reservacion-vuelos-bbc15",
+    "storage_bucket": "reservacion-vuelos-bbc15.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023121760646:android:48c2822289449990024c07",
+        "android_client_info": {
+          "package_name": "com.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1023121760646-4o0p6e0meeogfe9he5poq2llq4oo873e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0n0K1wMfY39avdVTlFaYNinF6ZvzbUOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1023121760646-4o0p6e0meeogfe9he5poq2llq4oo873e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
