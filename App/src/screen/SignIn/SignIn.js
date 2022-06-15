@@ -6,6 +6,8 @@ import Input from '../../component/Input/Input';
 import Footer from '../../component/Footer/Footer';
 import {styles} from './style';
 import ChBox from '../../component/CheckBox/ChBox';
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
 
 const SignIn = ({navigation}) => {
   const [state, setstate] = useState({
@@ -23,6 +25,16 @@ const SignIn = ({navigation}) => {
     console.log(state);
   };
 
+  const formik = useFormik({
+    initialValues: initialValues(),
+    validationSchema: Yup.object(validationSchema()),
+    validateOnChange: false,
+    onSubmit: formValue => {
+      console.log('Formulario enviado..');
+      console.log(formValue);
+    },
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.containerTitle}>
@@ -31,21 +43,27 @@ const SignIn = ({navigation}) => {
       <View style={styles.containerInput}>
         <Input
           title="First Name"
-          onChangeText={value => handleChangeText('First Name', value)}
+          err={formik.errors.firstName}
           textContentType={'emailAddress'}
           keyboardType="email-address"
+          value={formik.values.firstName}
+          onChangeText={text => formik.setFieldValue('firstName', text)}
         />
         <Input
           title="Email*"
+          err={formik.errors.email}
           textContentType="emailAddress"
           keyboardType="email-address"
+          value={formik.values.email}
+          onChangeText={text => formik.setFieldValue('email', text)}
         />
-
         <Input
           title="Password*"
+          err={formik.errors.password}
           textContentType="password"
           secureTextEntry={true}
-          onChangeText={value => handleChangeText('password', value)}
+          value={formik.values.password}
+          onChangeText={text => formik.setFieldValue('password', text)}
         />
       </View>
       <View>
@@ -64,7 +82,7 @@ const SignIn = ({navigation}) => {
         <ChBox label="Subscribe for select product updates" />
       </View>
       <View style={styles.containerButton}>
-        <ButtonForm title="Sing Up" onPress={() => login()} />
+        <ButtonForm title="Sing Up" onPress={formik.handleSubmit} />
         <Text style={styles.textButtonGroup}> or </Text>
         <ButtonGoogle title="Sign Up with Google" />
       </View>
@@ -78,4 +96,19 @@ const SignIn = ({navigation}) => {
   );
 };
 
+function initialValues() {
+  return {
+    firstName: '',
+    email: '',
+    password: '',
+  };
+}
+
+function validationSchema() {
+  return {
+    firstName: Yup.string().required('The user is oblitoried'),
+    email: Yup.string().email().required('Email in use.Use a diferent email'),
+    password: Yup.string().required('Incorrect password'),
+  };
+}
 export default SignIn;
