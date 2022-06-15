@@ -41,26 +41,25 @@ const SignIn = ({navigation}) => {
         <Text style={styles.title}>Sing up</Text>
       </View>
       <View style={styles.containerInput}>
-        <Text style={styles.inputError}>{formik.errors.firstName}</Text>
         <Input
           title="First Name"
+          err={formik.errors.firstName}
           textContentType={'emailAddress'}
           keyboardType="email-address"
           value={formik.values.firstName}
           onChangeText={text => formik.setFieldValue('firstName', text)}
         />
-        <Text style={styles.inputError}>{formik.errors.email}</Text>
         <Input
           title="Email*"
+          err={formik.errors.email}
           textContentType="emailAddress"
           keyboardType="email-address"
           value={formik.values.email}
           onChangeText={text => formik.setFieldValue('email', text)}
         />
-        <Text style={styles.inputError}>{formik.errors.password}</Text>
-
         <Input
           title="Password*"
+          err={formik.errors.password}
           textContentType="password"
           secureTextEntry={true}
           value={formik.values.password}

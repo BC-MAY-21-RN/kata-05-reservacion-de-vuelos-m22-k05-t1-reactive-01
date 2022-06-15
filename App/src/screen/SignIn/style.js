@@ -38,8 +38,8 @@ export const styles = StyleSheet.create({
   containerCheckBox: {
     width: themeStyle.CONTAINER_WIDTH,
   },
-  inputError:{
-    textAlign:'left',
-    color:"#f00",
-  }
+  inputError: {
+    textAlign: 'left',
+    color: '#f00',
+  },
 });
