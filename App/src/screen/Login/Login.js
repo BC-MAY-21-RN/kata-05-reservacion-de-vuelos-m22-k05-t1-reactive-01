@@ -9,24 +9,15 @@ import {useFormik} from 'formik';
 import * as Yup from 'yup';
 
 const Login = ({navigation}) => {
-  const [state, setstate] = useState({
-    email: '',
-    password: '',
-  });
-  const handleChangeText = (name, value) => {
-    setstate({...state, [name]: value});
-  };
-  const login = () => {
-    Alert.alert(state);
-  };
-
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: formValue => {
       Alert.alert('Formulario enviado..');
-      Alert.alert(formValue);
+      Alert.alert(
+        formValue.email.toString() + '    ' + formValue.password.toString(),
+      );
     },
   });
   return (
