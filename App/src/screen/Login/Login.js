@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
 import {styles} from './style';
 import ButtonForm from '../../component/Button/ButtonForm';
 import ButtonGoogle from '../../component/ButtonGoogle/ButtonGoogle';
@@ -17,7 +17,7 @@ const Login = ({navigation}) => {
     setstate({...state, [name]: value});
   };
   const login = () => {
-    console.log(state);
+    Alert.alert(state);
   };
 
   const formik = useFormik({
@@ -25,8 +25,8 @@ const Login = ({navigation}) => {
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: formValue => {
-      console.log('Formulario enviado..');
-      console.log(formValue);
+      Alert.alert('Formulario enviado..');
+      Alert.alert(formValue);
     },
   });
   return (
