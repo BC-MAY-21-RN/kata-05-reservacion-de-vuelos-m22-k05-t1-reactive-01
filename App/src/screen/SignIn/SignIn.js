@@ -9,6 +9,7 @@ import ChBox from '../../component/CheckBox/ChBox';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import {Auth} from '../../library/register';
+import registerCheck from '../component/registercheck/registerCheck';
 
 const SignIn = ({navigation}) => {
   const [state, setstate] = useState({
@@ -91,6 +92,7 @@ const SignIn = ({navigation}) => {
         navigation={navigation}
         route="Login"
       />
+      <registerCheck />
     </View>
   );
 };
