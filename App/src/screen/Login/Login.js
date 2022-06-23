@@ -7,6 +7,7 @@ import Footer from '../../component/Footer/Footer';
 import Input from '../../component/Input/Input';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import {signInGoogle} from '../../library/authenticationGoogle';
 
 const Login = ({navigation}) => {
   const formik = useFormik({
@@ -46,7 +47,10 @@ const Login = ({navigation}) => {
       <View style={styles.containerButton}>
         <ButtonForm title="Login" onPress={formik.handleSubmit} />
         <Text style={styles.textButtonGroup}> or </Text>
-        <ButtonGoogle title="Login with Google" />
+        <ButtonGoogle
+          title="Login with Google"
+          onPress={() => signInGoogle(navigation)}
+        />
       </View>
       <Footer
         title="You need create account"

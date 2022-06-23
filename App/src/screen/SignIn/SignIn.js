@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
 import ButtonForm from '../../component/Button/ButtonForm';
 import ButtonGoogle from '../../component/ButtonGoogle/ButtonGoogle';
 import Input from '../../component/Input/Input';
@@ -10,28 +10,12 @@ import {useFormik} from 'formik';
 import * as Yup from 'yup';
 
 const SignIn = ({navigation}) => {
-  const [state, setstate] = useState({
-    firstName: '',
-    email: '',
-    password: '',
-    privacyPolicy: false,
-    subscribeUpdates: false,
-  });
-  const handleChangeText = (name, value) => {
-    setstate({...state, [name]: value});
-  };
-
-  const login = () => {
-    console.log(state);
-  };
-
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: formValue => {
-      console.log('Formulario enviado..');
-      console.log(formValue);
+      Alert.alert('Formulario enviado..');
     },
   });
 

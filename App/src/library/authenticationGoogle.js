@@ -4,12 +4,12 @@ import {
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-//const signIn = (firstname, suscribe, email, password, navigation)
+import {Alert} from 'react-native';
+
 export const signInGoogle = async navigation => {
   try {
     GoogleSignin.configure({
-      webClientId:
-        '1023121760646-4o0p6e0meeogfe9he5poq2llq4oo873e.apps.googleusercontent.com',
+      webClientId: process.env.API_URL,
     });
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
@@ -52,7 +52,7 @@ export const addUserInfo = (firstname, suscribe, email, uid, navigation) => {
       uid: uid,
     })
     .then(() => {
-      console.log('Usuario agregado! => Enviando  A Home');
+      Alert.alert('Usuario agregado! => Enviando  A Home');
       navigation.navigate('Home');
     })
     .catch(error => console.log(error));
