@@ -1,16 +1,15 @@
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+import {Alert} from 'react-native';
+import {useEffect} from 'react';
 import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
-import auth from '@react-native-firebase/auth';
-import firestore from '@react-native-firebase/firestore';
-import {Alert} from 'react-native';
 
 export const signInGoogle = async navigation => {
   try {
-    GoogleSignin.configure({
-      webClientId: process.env.API_URL,
-    });
+    useGoogleConfig();
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     const authAux = await auth().signInWithCredential(googleCredential);
@@ -41,10 +40,16 @@ export const signInGoogle = async navigation => {
     }
   }
 };
-
+export const useGoogleConfig = () => {
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId: process.env.API_URL,
+    });
+  }, []);
+};
 export const addUserInfo = (firstname, suscribe, email, uid, navigation) => {
   firestore()
-    .collection('Users')
+    .collection('users')
     .add({
       firstname: firstname,
       suscribe: suscribe,

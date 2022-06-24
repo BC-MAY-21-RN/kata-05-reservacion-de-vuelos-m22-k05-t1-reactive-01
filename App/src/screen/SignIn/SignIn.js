@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, Alert} from 'react-native';
 import ButtonForm from '../../component/Button/ButtonForm';
 import ButtonGoogle from '../../component/ButtonGoogle/ButtonGoogle';

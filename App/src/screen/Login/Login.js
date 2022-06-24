@@ -7,9 +7,13 @@ import Footer from '../../component/Footer/Footer';
 import Input from '../../component/Input/Input';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
-import {signInGoogle} from '../../library/authenticationGoogle';
-
+import {
+  useGoogleConfig,
+  signInGoogle,
+} from '../../library/authenticationGoogle';
 const Login = ({navigation}) => {
+  const [sign] = useGoogleConfig(navigation);
+
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
