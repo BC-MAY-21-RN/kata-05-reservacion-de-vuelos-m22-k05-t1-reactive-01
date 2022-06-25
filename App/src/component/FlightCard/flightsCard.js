@@ -12,7 +12,7 @@ const flightsCard = ({date, iataCodeTo, iataCodeFrom, to, from, passagers}) => {
             <Text>{from}</Text>
           </View>
           <View style={styles.icono}>
-            <Icon width={30} height={30} color="#7B90FC" />
+            <Icon width={30} height={30} />
           </View>
           <View style={styles.item}>
             <Text style={styles.dtitle}>{iataCodeTo}</Text>
