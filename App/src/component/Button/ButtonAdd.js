@@ -1,12 +1,12 @@
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import IconGoogle from '../../assets/icon/plus-solid.svg';
+import IconPlus from '../../../assets/icon/plus-solid.svg';
 import themeStyle from '../../styles/theme.style';
 import React from 'react';
 
 const ButtonAdd = ({onPress}) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <IconGoogle style={styles.icon} />
+      <IconPlus style={styles.icon} width={30} height={30} />
     </TouchableOpacity>
   );
 };
