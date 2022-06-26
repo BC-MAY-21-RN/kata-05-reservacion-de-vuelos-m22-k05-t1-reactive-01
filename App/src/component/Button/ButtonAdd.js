@@ -1,5 +1,5 @@
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import IconPlus from '../../../assets/icon/plus-solid.svg';
+import IconPlus from '../../assets/icon/plus-solid.svg';
 import themeStyle from '../../styles/theme.style';
 import React from 'react';
 
