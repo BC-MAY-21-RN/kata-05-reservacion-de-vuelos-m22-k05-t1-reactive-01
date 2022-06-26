@@ -9,7 +9,10 @@ import {
 
 export const signInGoogle = async navigation => {
   try {
-    useGoogleConfig();
+    GoogleSignin.configure({
+      webClientId:
+        '1023121760646-4o0p6e0meeogfe9he5poq2llq4oo873e.apps.googleusercontent.com',
+    });
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     const authAux = await auth().signInWithCredential(googleCredential);
