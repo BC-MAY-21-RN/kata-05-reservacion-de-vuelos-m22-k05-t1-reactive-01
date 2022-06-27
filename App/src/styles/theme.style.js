@@ -13,4 +13,6 @@ export default {
   FONT_WEIGHT_BLOD: '700',
   FONT_WEIGHT_HEAVY: '800',
   CONTAINER_WIDTH: Dimensions.get('screen').width - 20,
+  WIDTH_SCREEN: Dimensions.get('screen').width,
+  HEIGHT_SCREEN: Dimensions.get('screen').height,
 };
