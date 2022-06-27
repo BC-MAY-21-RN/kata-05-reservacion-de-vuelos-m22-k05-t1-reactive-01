@@ -2,12 +2,11 @@ import auth from '@react-native-firebase/auth';
 import {Alert} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 
-export const Auth = (name, suscribe, email, password, navigation) => {
+export const AuthSignUp = (name, suscribe, email, password, navigation) => {
   setTimeout(() => {
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        Alert.alert('User account created & signed in!');
         const current = auth().currentUser;
         firestore()
           .collection('users')
@@ -33,5 +32,5 @@ export const Auth = (name, suscribe, email, password, navigation) => {
 
         console.error(error);
       });
-  }, 3000);
+  }, 2000);
 };

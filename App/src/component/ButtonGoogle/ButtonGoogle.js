@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
-import IconGoogle from '../../../assets/icon/google.svg';
+import IconGoogle from '../../assets/icon/google.svg';
 import {styleButton} from './style';
 const ButtonGoogle = ({title, onPress}) => {
   return (
