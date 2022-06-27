@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-
 import FlightsCard from '../../component/FlightCard/flightsCard';
 import ButtonAdd from '../../component/Button/ButtonAdd';
 import {styles} from './style.js';

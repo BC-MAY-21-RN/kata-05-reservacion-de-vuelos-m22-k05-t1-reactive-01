@@ -2,20 +2,20 @@ import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {Keyboard} from 'react-native';
 import LottieView from 'lottie-react-native';
-const Loader = () => {
+const RegisterCheck = () => {
   Keyboard.dismiss();
   return (
     <View style={[StyleSheet.absoluteFillObject, styles.container]}>
       <LottieView
-        source={require('../../assets/loader/9844-loading-40-paperplane.json')}
+        source={require('../../../assets/success/success.json')}
         autoPlay
-        loop
+        speed={0.5}
       />
     </View>
   );
 };
 
-export default Loader;
+export default RegisterCheck;
 
 const styles = StyleSheet.create({
   container: {
@@ -23,6 +23,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 1,
-    backgroundColor: 'white',
   },
 });

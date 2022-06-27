@@ -7,8 +7,8 @@ import Footer from '../../component/Footer/Footer';
 import Input from '../../component/Input/Input';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
-import {logIn} from '../../hubs/AuthProvider';
-import Loader from '../../hubs/Loader';
+import {logIn} from '../../authentication/loginEmail/AuthProvider';
+import Loader from '../../component/Animations/Loader/Loader';
 
 const Login = ({navigation}) => {
   const [status, setStatus] = useState(false);

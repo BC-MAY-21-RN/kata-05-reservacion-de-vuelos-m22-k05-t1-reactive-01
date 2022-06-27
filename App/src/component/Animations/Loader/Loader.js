@@ -1,14 +1,13 @@
-
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {Keyboard} from 'react-native';
 import LottieView from 'lottie-react-native';
-const registerCheck = () => {
+const Loader = () => {
   Keyboard.dismiss();
   return (
     <View style={[StyleSheet.absoluteFillObject, styles.container]}>
       <LottieView
-        source={require('../../assets/11061-kick-ass.json')}
+        source={require('../../../assets/loader/loading-plane.json')}
         autoPlay
         loop
       />
@@ -16,7 +15,7 @@ const registerCheck = () => {
   );
 };
 
-export default registerCheck;
+export default Loader;
 
 const styles = StyleSheet.create({
   container: {
@@ -24,6 +23,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 1,
+    backgroundColor: 'white',
   },
 });
-
