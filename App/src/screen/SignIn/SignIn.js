@@ -8,6 +8,8 @@ import {styles} from './style';
 import ChBox from '../../component/CheckBox/ChBox';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import {Auth} from '../../library/register';
+import registerCheck from '../component/registercheck/registerCheck';
 
 const SignIn = ({navigation}) => {
   const [state, setstate] = useState({
@@ -17,21 +19,19 @@ const SignIn = ({navigation}) => {
     privacyPolicy: false,
     subscribeUpdates: false,
   });
-  const handleChangeText = (name, value) => {
-    setstate({...state, [name]: value});
-  };
-
-  const login = () => {
-    console.log(state);
-  };
 
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: formValue => {
-      console.log('Formulario enviado..');
-      console.log(formValue);
+      Auth(
+        formValue.firstName,
+        true,
+        formValue.email,
+        formValue.password,
+        navigation,
+      );
     },
   });
 
@@ -92,6 +92,7 @@ const SignIn = ({navigation}) => {
         navigation={navigation}
         route="Login"
       />
+      <registerCheck />
     </View>
   );
 };
