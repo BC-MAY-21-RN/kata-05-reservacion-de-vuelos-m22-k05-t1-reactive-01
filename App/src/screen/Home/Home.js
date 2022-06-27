@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import styles from './style';
+
 import FlightsCard from '../../component/FlightCard/flightsCard';
 import ButtonAdd from '../../component/Button/ButtonAdd';
-
+import {styles} from './style.js';
 const Home = () => {
   return (
-    <View style={styles.container}>
+    <View>
       <ScrollView>
         <FlightsCard
           date="20/10/2020"

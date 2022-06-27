@@ -39,6 +39,8 @@ export const styles = StyleSheet.create({
   icono: {
     alignContent: 'center',
     justifyContent: 'center',
+    color: 'red',
+    fontSize: 50,
   },
   ftext: {
     fontWeight: themeStyle.FONT_WEIGHT_BLOD,

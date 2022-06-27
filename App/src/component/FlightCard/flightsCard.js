@@ -1,7 +1,7 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import {styles} from './style';
-import Icon from '../../assets/icon/plane-solid.svg';
+import Icon from '../../assets/icon/avion.svg';
 const flightsCard = ({date, iataCodeTo, iataCodeFrom, to, from, passagers}) => {
   return (
     <View>
@@ -12,7 +12,7 @@ const flightsCard = ({date, iataCodeTo, iataCodeFrom, to, from, passagers}) => {
             <Text>{from}</Text>
           </View>
           <View style={styles.icono}>
-            <Icon width={30} height={30} />
+            <Icon width={40} height={40} />
           </View>
           <View style={styles.item}>
             <Text style={styles.dtitle}>{iataCodeTo}</Text>
