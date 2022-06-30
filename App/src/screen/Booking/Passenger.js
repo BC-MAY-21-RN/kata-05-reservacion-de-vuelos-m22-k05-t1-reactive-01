@@ -3,8 +3,8 @@ import {
   PassengerPicker,
   BookingLayout,
   NextButton,
-} from '../../components/index';
-import {Tittle} from '../../components/BookingTittle/Tittle';
+} from '../../component/index';
+import {Tittle} from '../../component/BookingTittle/Tittle';
 
 export function Passenger(props) {
   return (

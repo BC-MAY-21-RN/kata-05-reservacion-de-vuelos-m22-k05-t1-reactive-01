@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput} from 'react-native';
 import Style from './BookingStyles';
-import {BookingLayout, NextButton} from '../../components/index';
+import {BookingLayout, NextButton} from '../../component/index';
 
 export function To() {
   const [textInputFrom, setTextInputFrom] = useState('');

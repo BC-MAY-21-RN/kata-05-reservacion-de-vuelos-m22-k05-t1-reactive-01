@@ -1,6 +1,11 @@
 import firestore from '@react-native-firebase/firestore';
-import {Store} from '../Redux/Store';
-import {setOrigin, setDate, setDestiny, setPassenger} from '../Redux/Actions';
+import {Store} from '../component/Redux/Store';
+import {
+  setOrigin,
+  setDate,
+  setDestiny,
+  setPassenger,
+} from '../component/Redux/Actions';
 
 export function uploadData() {
   try {

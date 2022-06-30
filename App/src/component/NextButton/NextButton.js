@@ -2,13 +2,13 @@ import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Style from '../../screen/Booking/BookingStyles';
-import {Store} from '../../Redux/Store';
+import {Store} from '../Redux/Store';
 import {
   setOrigin,
   setDate,
   setDestiny,
   setPassenger,
-} from '../../Redux/Actions';
+} from '../Redux/Actions';
 import {uploadData} from '../../FireBase/uploadData';
 
 export function NextButton({nextPage, value, caso}) {

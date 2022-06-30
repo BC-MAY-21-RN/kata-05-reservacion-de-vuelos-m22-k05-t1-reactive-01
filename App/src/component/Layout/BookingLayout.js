@@ -4,7 +4,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import Style from '../../screen/Booking/BookingStyles';
-import {Store} from '../../Redux/Store';
+import {Store} from '../Redux/Store';
 
 export function BookingLayout({
   showAirplane,

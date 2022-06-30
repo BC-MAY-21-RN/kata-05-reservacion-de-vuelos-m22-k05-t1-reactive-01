@@ -1,6 +1,6 @@
 import React from 'react';
-import {BookingLayout, NextButton} from '../../components/index';
-import {Tittle} from '../../components/BookingTittle/Tittle';
+import {BookingLayout, NextButton} from '../../component/index';
+import {Tittle} from '../../component/BookingTittle/Tittle';
 
 export function FinalDetails(props) {
   return (
