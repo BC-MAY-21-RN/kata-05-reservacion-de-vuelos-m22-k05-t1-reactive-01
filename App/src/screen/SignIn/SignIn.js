@@ -8,30 +8,25 @@ import {styles} from './style';
 import ChBox from '../../component/CheckBox/ChBox';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import {AuthSignUp} from '../../authentication/registerEmail/register';
+import RegisterCheck from '../../component/Animations/Registercheck/RegisterCheck';
 
 const SignIn = ({navigation}) => {
-  const [state, setstate] = useState({
-    firstName: '',
-    email: '',
-    password: '',
-    privacyPolicy: false,
-    subscribeUpdates: false,
-  });
-  const handleChangeText = (name, value) => {
-    setstate({...state, [name]: value});
-  };
-
-  const login = () => {
-    console.log(state);
-  };
+  const [status, setStatus] = useState(false);
 
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: formValue => {
-      console.log('Formulario enviado..');
-      console.log(formValue);
+      AuthSignUp(
+        formValue.firstName,
+        true,
+        formValue.email,
+        formValue.password,
+        navigation,
+      );
+      setStatus(true);
     },
   });
 
@@ -92,6 +87,7 @@ const SignIn = ({navigation}) => {
         navigation={navigation}
         route="Login"
       />
+      {status === false ? false : <RegisterCheck />}
     </View>
   );
 };

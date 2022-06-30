@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Alert} from 'react-native';
+import {View, Text} from 'react-native';
 import {styles} from './style';
 import ButtonForm from '../../component/Button/ButtonForm';
 import ButtonGoogle from '../../component/ButtonGoogle/ButtonGoogle';
@@ -7,17 +7,18 @@ import Footer from '../../component/Footer/Footer';
 import Input from '../../component/Input/Input';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import {logIn} from '../../authentication/loginEmail/AuthProvider';
+import Loader from '../../component/Animations/Loader/Loader';
 
 const Login = ({navigation}) => {
+  const [status, setStatus] = useState(false);
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     validateOnChange: false,
     onSubmit: formValue => {
-      Alert.alert('Formulario enviado..');
-      Alert.alert(
-        formValue.email.toString() + '    ' + formValue.password.toString(),
-      );
+      logIn(formValue.email, formValue.password, navigation);
+      setStatus(true);
     },
   });
   return (
@@ -54,6 +55,7 @@ const Login = ({navigation}) => {
         navigation={navigation}
         route="SignIn"
       />
+      {status === false ? false : <Loader />}
     </View>
   );
 };
@@ -70,4 +72,6 @@ function validationSchema() {
     password: Yup.string().required('Incorrect password'),
   };
 }
+
 export default Login;
+//

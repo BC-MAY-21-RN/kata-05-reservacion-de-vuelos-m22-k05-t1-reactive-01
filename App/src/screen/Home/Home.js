@@ -1,16 +1,26 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import theme from './style';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import FlightsCard from '../../component/FlightCard/flightsCard';
+import ButtonAdd from '../../component/Button/ButtonAdd';
+import {styles} from './style.js';
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <Text>Pagina home</Text>
+    <View>
+      <ScrollView>
+        <FlightsCard
+          date="20/10/2020"
+          iataCodeFrom="AAA"
+          to="Bogota"
+          from="Argentina"
+          iataCodeTo="ARG"
+          passagers="5"
+        />
+      </ScrollView>
+      <View style={styles.button}>
+        <ButtonAdd />
+      </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {},
-});
 
 export default Home;
