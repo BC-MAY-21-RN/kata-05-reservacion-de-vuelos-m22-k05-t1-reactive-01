@@ -81,7 +81,7 @@ const SignIn = ({navigation}) => {
         <Text style={styles.textButtonGroup}> or </Text>
         <ButtonGoogle
           title="Sign Up with Google"
-          onPress={signInWithGoogleAsync}
+          onPress={() => signInWithGoogleAsync(navigation)}
         />
       </View>
       <Footer
