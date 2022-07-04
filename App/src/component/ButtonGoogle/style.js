@@ -10,6 +10,14 @@ export const styleButton = StyleSheet.create({
     marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 4.65,
+    elevation: 8,
   },
   text: {
     color: themeStyle.BACKGROUND_COLOR_LIGHT,

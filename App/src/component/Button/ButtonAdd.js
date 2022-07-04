@@ -21,6 +21,14 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     alignContent: 'center',
     justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 2,
+      height: 2,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 2,
+    elevation: 8,
   },
   icon: {
     marginLeft: 26,

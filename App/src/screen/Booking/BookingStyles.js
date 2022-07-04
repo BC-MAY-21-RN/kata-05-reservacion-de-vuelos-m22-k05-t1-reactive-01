@@ -1,0 +1,96 @@
+import {StyleSheet} from 'react-native';
+import themeStyle from '../../styles/theme.style';
+import {windowWidth, windowHeight} from '../../helpers/helper';
+
+const Styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 20,
+    marginTop: 5,
+  },
+  back: {
+    marginBottom: 5,
+    marginTop: 10,
+  },
+  flyregion: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomColor: '#444646',
+    borderBottomWidth: 0.5,
+    paddingVertical: 8,
+    width: windowWidth * 0.5,
+  },
+  flyregion_selectDate: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomColor: '#444646',
+    borderBottomWidth: 0.5,
+    paddingVertical: 8,
+  },
+  flyregion_selectDateNoUnderline: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 8,
+  },
+  cityList: {
+    color: 'black',
+    fontWeight: '900',
+    fontSize: 30,
+  },
+  cityListDestiny: {
+    color: 'black',
+    fontWeight: '900',
+    fontSize: 30,
+    textAlign: 'right',
+  },
+  countryList: {
+    color: 'black',
+    fontWeight: '200',
+    fontSize: 14,
+    letterSpacing: 0.8,
+  },
+  to_container: {},
+  from_container: {
+    marginTop: windowHeight * 0.01,
+  },
+  to: {
+    marginTop: 60,
+    color: 'black',
+    fontSize: 35,
+    fontWeight: '900',
+  },
+  textInput_to: {
+    marginTop: themeStyle.HEIGHT_SCREEN / 10,
+    borderBottomColor: 'black',
+    borderBottomWidth: 2,
+    color: 'black',
+    fontSize: 15,
+  },
+  container_next: {
+    position: 'absolute',
+    alignSelf: 'center',
+    marginTop: themeStyle.HEIGHT_SCREEN / 1.2,
+  },
+  text_next: {
+    color: 'white',
+    fontSize: 18,
+    bottom: 0.9,
+    textAlign: 'center',
+    borderRadius: 10,
+    height: 40,
+    textAlignVertical: 'center',
+    paddingHorizontal: themeStyle.WIDTH_SCREEN / 3,
+  },
+  date: {
+    color: 'black',
+    fontWeight: '500',
+    fontSize: 15,
+  },
+});
+
+export default Styles;

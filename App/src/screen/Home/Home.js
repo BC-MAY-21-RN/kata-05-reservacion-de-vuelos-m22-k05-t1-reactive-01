@@ -13,6 +13,7 @@ const Home = () => {
           to="Bogota"
           from="Argentina"
           iataCodeTo="ARG"
+          titlePassagers="passagers"
           passagers="5"
         />
       </ScrollView>

@@ -18,6 +18,11 @@ export const AuthSignUp = (name, suscribe, email, password, navigation) => {
             password: password,
           })
           .then(() => {
+            current.updateProfile({
+              displayName: name,
+            });
+          })
+          .then(() => {
             navigation.navigate('Login');
           });
       })

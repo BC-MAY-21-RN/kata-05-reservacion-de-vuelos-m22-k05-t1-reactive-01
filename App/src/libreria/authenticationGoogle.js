@@ -22,7 +22,7 @@ export const signInGoogle = async navigation => {
       const current = auth().currentUser;
       addUserInfo(
         userData.fullName,
-        false,
+        true,
         userData.email,
         current.uid,
         navigation,

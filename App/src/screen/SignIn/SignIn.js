@@ -10,7 +10,7 @@ import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import {AuthSignUp} from '../../authentication/registerEmail/register';
 import RegisterCheck from '../../component/Animations/Registercheck/RegisterCheck';
-
+import {signInWithGoogleAsync} from '../../authentication/signInGoogle/SignInGoogle';
 const SignIn = ({navigation}) => {
   const [status, setStatus] = useState(false);
 
@@ -79,7 +79,10 @@ const SignIn = ({navigation}) => {
       <View style={styles.containerButton}>
         <ButtonForm title="Sing Up" onPress={formik.handleSubmit} />
         <Text style={styles.textButtonGroup}> or </Text>
-        <ButtonGoogle title="Sign Up with Google" />
+        <ButtonGoogle
+          title="Sign Up with Google"
+          onPress={() => signInWithGoogleAsync(navigation)}
+        />
       </View>
       <Footer
         title="Already have an account?"

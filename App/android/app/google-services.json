@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "1023121760646",
-    "project_id": "reservacion-vuelos-bbc15",
-    "storage_bucket": "reservacion-vuelos-bbc15.appspot.com"
+    "project_number": "329362882571",
+    "project_id": "airport-6d1a9",
+    "storage_bucket": "airport-6d1a9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1023121760646:android:48c2822289449990024c07",
+        "mobilesdk_app_id": "1:329362882571:android:fe133c4ca3ec67966cc70e",
         "android_client_info": {
           "package_name": "com.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1023121760646-4o0p6e0meeogfe9he5poq2llq4oo873e.apps.googleusercontent.com",
+          "client_id": "329362882571-s61b8rtacm12iov517s0ues08n1sq7ab.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app",
+            "certificate_hash": "cda12366a4f0408fa3eeb00b1bf9bde011820d61"
+          }
+        },
+        {
+          "client_id": "329362882571-7v0t0s6uk3po1hil7mof8aq29oo2pbtk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD0n0K1wMfY39avdVTlFaYNinF6ZvzbUOA"
+          "current_key": "AIzaSyAgZ6bA849gv1qJnFu0XJz-X_U4AI50f8M"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1023121760646-4o0p6e0meeogfe9he5poq2llq4oo873e.apps.googleusercontent.com",
+              "client_id": "329362882571-7v0t0s6uk3po1hil7mof8aq29oo2pbtk.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
