@@ -1,21 +1,24 @@
-import {Text, View, TextInput} from 'react-native';
-import React from 'react';
-import ButtonNext from '../../component/Booking/ButtonNext.js/ButtonNext';
-import Title from '../../component/Title/Title';
-import {styles} from './style';
-const From = () => {
+import {Text, View, TextInput, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import ButtonForm from '../../component/Button/ButtonForm';
+import Header from '../../component/Header/Header';
+import {useSelector} from 'react-redux';
+import {store} from '../../store/store';
+import {add_origin} from '../../store/Slice/OriginSlice/OriginSlice';
+const From = ({navigation}) => {
+  const state = useSelector(state => state.origin);
   return (
-    <View style={styles.container}>
-      <Title title="Where are you now?" />
-      <TextInput
-        style={styles.input}
-        placeholder="Select location"
-        placeholderTextColor="black"
-        //onChangeText={value => setTextInputFrom(value)}
-      />
-      <ButtonNext status="next" />
+    <View style={styles.contaienr}>
+      <Header navigation={navigation} onPress={() => navigation.goBack()} />
+      <Text>"Where are you now?"</Text>
+      <TextInput placeholder="Select location" placeholderTextColor="black" />
+      <ButtonForm title="Next" onPress={() => navigation.navigate('To')} />
     </View>
   );
 };
 
 export default From;
+
+const styles = StyleSheet.create({
+  contaienr: {justifyContent: 'space-between'},
+});

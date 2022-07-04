@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import themeStyle from '../../styles/theme.style';
 export const styles = StyleSheet.create({
-  container: {marginHorizontal: 10},
+  container: {height: 100, backgroundColor: 'red'},
   header: {
     marginTop: 10,
     flexDirection: 'row',

@@ -10,8 +10,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   wrapperVertical: {
-    width: 250,
-    height: 340,
+  
     justifyContent: 'center',
     alignItems: 'center',
     margin: 'auto',

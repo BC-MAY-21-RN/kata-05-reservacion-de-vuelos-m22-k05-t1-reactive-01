@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import FlightsCard from '../../component/FlightCard/flightsCard';
 import ButtonAdd from '../../component/Button/ButtonAdd';
 import {styles} from './style.js';
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <View>
       <ScrollView>
@@ -18,7 +18,7 @@ const Home = () => {
         />
       </ScrollView>
       <View style={styles.button}>
-        <ButtonAdd />
+        <ButtonAdd onPress={() => navigation.navigate('From')} />
       </View>
     </View>
   );

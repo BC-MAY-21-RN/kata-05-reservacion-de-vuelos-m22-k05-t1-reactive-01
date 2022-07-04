@@ -1,14 +1,34 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Title from '../../component/Title/Title';
 import FlightsCard from '../../component/FlightCard/flightsCard';
-import ButtonNext from '../../component/Booking/ButtonNext.js/ButtonNext';
-//import DatePicker from 'react-native-modern-datepicker';
-const SelectDate = () => {
-  //const minDate = new Date(); // Today
-  //const [selectedDate, setSelectedDate] = useState('');
+import {styles} from './style';
+import ButtonForm from '../../component/Button/ButtonForm';
+import Header from '../../component/Header/Header';
+const SelectDate = ({navigation}) => {
+  const [disable, setDisable] = useState(false);
+  const [fecha, setFecha] = useState();
+  const [currentDate, setCurrent] = useState();
+  useEffect(() => {
+    var date = new Date().getDate();
+    var month = new Date().getMonth() + 1;
+    var year = new Date().getFullYear();
+    if (date <= 9) {
+      setCurrent(year + '-' + month + '-' + '0' + date);
+    }
+    if (month <= 9) {
+      setCurrent(year + '-' + '0' + month + '-' + date);
+    } else {
+      setCurrent(year + '-' + month + '-' + date);
+    }
+  }, []);
+  const handleDate = date => {
+    setFecha(date);
+    setDisable(true);
+  };
   return (
-    <View>
+    <View style={styles.container}>
+      <Header navigation={navigation} onPress={() => navigation.goBack()} />
       <FlightsCard
         iataCodeFrom="AAA"
         to="Bogota"
@@ -17,11 +37,12 @@ const SelectDate = () => {
       />
       <Title title="Select date" />
 
-      <ButtonNext status="next" />
+      <ButtonForm
+        title={'Next'}
+        onPress={() => navigation.navigate('Passenger')}
+      />
     </View>
   );
 };
 
 export default SelectDate;
-
-const styles = StyleSheet.create({});

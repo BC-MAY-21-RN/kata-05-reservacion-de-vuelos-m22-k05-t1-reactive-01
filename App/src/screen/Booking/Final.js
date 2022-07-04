@@ -1,12 +1,15 @@
 import React from 'react';
 import {View} from 'react-native';
-import ButtonNext from '../../component/Booking/ButtonNext.js/ButtonNext';
 import Title from '../../component/Title/Title';
 import FlightsCard from '../../component/FlightCard/flightsCard';
+import ButtonForm from '../../component/Button/ButtonForm';
+import Header from '../../component/Header/Header';
+import {styles} from './style';
 
-const Final = () => {
+const Final = ({navigation}) => {
   return (
-    <View>
+    <View style={styles.container}>7
+      <Header navigation={navigation} onPress={() => navigation.goBack()} />
       <FlightsCard
         date="20/10/2020"
         iataCodeFrom="AAA"
@@ -17,7 +20,7 @@ const Final = () => {
         passagers="5"
       />
       <Title title="Your request was received." />
-      <ButtonNext status="next" />
+      <ButtonForm title="Finish" onPress={() => navigation.navigate('Home')} />
     </View>
   );
 };

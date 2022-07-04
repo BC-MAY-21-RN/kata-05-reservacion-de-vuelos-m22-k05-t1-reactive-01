@@ -3,15 +3,18 @@ import themeStyle from '../../styles/theme.style';
 
 export const styles = StyleSheet.create({
   container: {
-    marginHorizontal: themeStyle.WIDTH_SCREEN - 20,
-    marginTop: themeStyle.HEIGHT_SCREEN * 0.01,
-    backgroundColor: 'red',
+    flex: 1,
+    height: themeStyle.HEIGHT_SCREEN,
+    marginHorizontal: 20,
   },
   input: {
-    marginTop: themeStyle.HEIGHT_SCREEN / 10,
     borderBottomColor: 'grey',
     borderBottomWidth: 2,
     color: 'black',
     fontSize: 15,
+  },
+  title: {
+    container: {marginTop: themeStyle.FONT_SIZE_HIGH * 0.01},
+    title: {marginTop: 60, color: 'black', fontSize: 35, fontWeight: '900'},
   },
 });

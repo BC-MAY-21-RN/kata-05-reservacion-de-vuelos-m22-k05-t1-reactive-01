@@ -1,9 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-
-import {Dimensions} from 'react-native';
-export const windowWidth = Dimensions.get('window').width;
-export const windowHeight = Dimensions.get('window').height;
+import themeStyle from '../../../styles/theme.style';
 
 const ButtonNext = ({status}) => {
   const value = 'gray';
@@ -20,7 +17,7 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     alignSelf: 'center',
-    marginTop: windowHeight / 1.2,
+    marginTop: themeStyle.HEIGHT_SCREEN / 1.2,
     backgroundColor: '#5C6EF8',
     borderRadius: 5,
   },
@@ -31,6 +28,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     height: 45,
     textAlignVertical: 'center',
-    paddingHorizontal: windowWidth / 3,
+    paddingHorizontal: themeStyle.WIDTH_SCREEN / 3,
   },
 });
