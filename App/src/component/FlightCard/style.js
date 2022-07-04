@@ -33,8 +33,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingBottom: 15,
     paddingTop: 5,
-    borderBottomWidth: 1.5,
-    borderBottomColor: 'black',
   },
   icono: {
     alignContent: 'center',

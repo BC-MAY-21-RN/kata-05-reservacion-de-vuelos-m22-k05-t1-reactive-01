@@ -5,10 +5,10 @@ import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import {API_URL} from '@env';
 
 GoogleSignin.configure({
-  webClientId:
-    '329362882571-7v0t0s6uk3po1hil7mof8aq29oo2pbtk.apps.googleusercontent.com',
+  webClientId: API_URL,
 });
 
 export const signInWithGoogleAsync = async navigation => {
