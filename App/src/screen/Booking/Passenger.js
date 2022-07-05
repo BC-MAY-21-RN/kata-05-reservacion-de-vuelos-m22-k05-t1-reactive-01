@@ -20,7 +20,10 @@ const Passenger = ({navigation}) => {
         passagers="5"
       />
       <Title title="How many passengers?" />
-      <PassengerPicker />
+      <View style={styles.content}>
+        <PassengerPicker />
+      </View>
+
       <ButtonForm title="Next" onPress={() => navigation.navigate('Final')} />
     </View>
   );

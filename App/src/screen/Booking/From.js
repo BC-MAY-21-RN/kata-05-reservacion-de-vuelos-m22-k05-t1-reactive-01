@@ -5,20 +5,42 @@ import Header from '../../component/Header/Header';
 import {useSelector} from 'react-redux';
 import {store} from '../../store/store';
 import {add_origin} from '../../store/Slice/OriginSlice/OriginSlice';
+import SelectList from 'react-native-dropdown-select-list';
+import {styles} from './style';
+
 const From = ({navigation}) => {
   const state = useSelector(state => state.origin);
+  const [selected, setSelected] = useState('');
+
+  const data = [
+    {key: '1', value: 'Jammu & Kashmir'},
+    {key: '2', value: 'Gujrat'},
+    {key: '3', value: 'Maharashtra'},
+    {key: '4', value: 'Goa'},
+  ];
   return (
     <View style={styles.contaienr}>
       <Header navigation={navigation} onPress={() => navigation.goBack()} />
-      <Text>"Where are you now?"</Text>
-      <TextInput placeholder="Select location" placeholderTextColor="black" />
-      <ButtonForm title="Next" onPress={() => navigation.navigate('To')} />
+      <Text style={styles.title}>"Where are you now?"</Text>
+      <View style={styles.content}>
+        <SelectList
+          setSelected={setSelected}
+          data={data}
+          search={true}
+          boxStyles={styles.boxStyles}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <ButtonForm
+          title="Next"
+          onPress={
+            (() => store.dispatch(add_origin(setSelected)),
+            navigation.navigate('To'))
+          }
+        />
+      </View>
     </View>
   );
 };
 
 export default From;
-
-const styles = StyleSheet.create({
-  contaienr: {justifyContent: 'space-between'},
-});

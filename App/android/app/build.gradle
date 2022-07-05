@@ -1,6 +1,4 @@
 apply plugin: "com.android.application"
-apply plugin: 'com.google.gms.google-services'
-
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
 
@@ -261,12 +259,15 @@ android {
 }
 
 dependencies {
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0' // <-- add this; newer versions should work too
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
@@ -318,3 +319,4 @@ def isNewArchitectureEnabled() {
     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
+apply plugin: 'com.google.gms.google-services'

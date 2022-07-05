@@ -36,11 +36,13 @@ const SelectDate = ({navigation}) => {
         iataCodeTo="ARG"
       />
       <Title title="Select date" />
-
-      <ButtonForm
-        title={'Next'}
-        onPress={() => navigation.navigate('Passenger')}
-      />
+      <View style={styles.content}></View>
+      <View>
+        <ButtonForm
+          title={'Next'}
+          onPress={() => navigation.navigate('Passenger')}
+        />
+      </View>
     </View>
   );
 };

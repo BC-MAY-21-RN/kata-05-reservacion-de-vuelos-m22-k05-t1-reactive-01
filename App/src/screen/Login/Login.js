@@ -9,7 +9,7 @@ import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import {logIn} from '../../authentication/loginEmail/AuthProvider';
 import Loader from '../../component/Animations/Loader/Loader';
-
+import {signInWithGoogleAsync} from '../../authentication/signInGoogle/SignInGoogle';
 const Login = ({navigation}) => {
   const [status, setStatus] = useState(false);
   const formik = useFormik({
@@ -47,7 +47,10 @@ const Login = ({navigation}) => {
       <View style={styles.containerButton}>
         <ButtonForm title="Login" onPress={formik.handleSubmit} />
         <Text style={styles.textButtonGroup}> or </Text>
-        <ButtonGoogle title="Login with Google" />
+        <ButtonGoogle
+          title="Login with Google"
+          onPress={() => signInWithGoogleAsync(navigation)}
+        />
       </View>
       <Footer
         title="You need create account"

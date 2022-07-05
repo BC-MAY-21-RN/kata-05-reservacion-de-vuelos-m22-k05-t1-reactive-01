@@ -8,19 +8,27 @@ import {styles} from './style';
 
 const Final = ({navigation}) => {
   return (
-    <View style={styles.container}>7
+    <View style={styles.container}>
       <Header navigation={navigation} onPress={() => navigation.goBack()} />
-      <FlightsCard
-        date="20/10/2020"
-        iataCodeFrom="AAA"
-        to="Bogota"
-        from="Argentina"
-        iataCodeTo="ARG"
-        titlePassagers="passagers"
-        passagers="5"
-      />
       <Title title="Your request was received." />
-      <ButtonForm title="Finish" onPress={() => navigation.navigate('Home')} />
+      <View style={styles.content}>
+        <FlightsCard
+          date="20/10/2020"
+          iataCodeFrom="AAA"
+          to="Bogota"
+          from="Argentina"
+          iataCodeTo="ARG"
+          titlePassagers="passagers"
+          passagers="5"
+        />
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <ButtonForm
+          title="Finish"
+          onPress={() => navigation.navigate('Home')}
+        />
+      </View>
     </View>
   );
 };
