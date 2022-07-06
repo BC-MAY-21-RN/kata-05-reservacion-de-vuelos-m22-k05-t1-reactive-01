@@ -4,7 +4,10 @@ import SmoothPicker from 'react-native-smooth-picker';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import styles from './PassengersStyle';
 
-const dataPassengers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+import {store} from '../../../store/store';
+import {add_passenger} from '../../../store/Slice/FlightSlice/FlightSlice';
+
+const dataPassengers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 const opacities = {
   0: 1,
   1: 1,
@@ -62,7 +65,7 @@ function ItemToRender({item, index}, indexSelected, vertical) {
 }
 
 const Passenger = ({index}) => {
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.wrapperVertical}>
@@ -74,7 +77,8 @@ const Passenger = ({index}) => {
           data={dataPassengers}
           scrollAnimation
           onSelected={({item, index}) => {
-            setSelected(index);
+            //Agregar(index);
+            store.dispatch(add_passenger(index));
           }}
           renderItem={option => ItemToRender(option, selected, true)}
           magnet

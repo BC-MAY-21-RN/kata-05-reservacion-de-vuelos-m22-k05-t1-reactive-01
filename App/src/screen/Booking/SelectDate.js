@@ -5,6 +5,9 @@ import FlightsCard from '../../component/FlightCard/flightsCard';
 import {styles} from './style';
 import ButtonForm from '../../component/Button/ButtonForm';
 import Header from '../../component/Header/Header';
+import {store} from '../../store/store';
+import {add_date} from '../../store/Slice/FlightSlice/FlightSlice';
+
 const SelectDate = ({navigation}) => {
   const [disable, setDisable] = useState(false);
   const [fecha, setFecha] = useState();
@@ -40,7 +43,10 @@ const SelectDate = ({navigation}) => {
       <View>
         <ButtonForm
           title={'Next'}
-          onPress={() => navigation.navigate('Passenger')}
+          onPress={() => {
+            store.dispatch(add_date('11/2/33')),
+              navigation.navigate('Passenger');
+          }}
         />
       </View>
     </View>

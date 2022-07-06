@@ -6,6 +6,8 @@ import Header from '../../component/Header/Header';
 import ButtonForm from '../../component/Button/ButtonForm';
 import SelectList from 'react-native-dropdown-select-list';
 import {store} from '../../store/store';
+import {add_destiny} from '../../store/Slice/FlightSlice/FlightSlice';
+
 const To = ({navigation}) => {
   const [selected, setSelected] = useState();
 
@@ -32,7 +34,10 @@ const To = ({navigation}) => {
       <View style={styles.buttonCon}>
         <ButtonForm
           title="Next"
-          onPress={() => navigation.navigate('SelectDate')}
+          onPress={() => {
+            store.dispatch(add_destiny(selected)),
+              navigation.navigate('SelectDate');
+          }}
         />
       </View>
     </View>

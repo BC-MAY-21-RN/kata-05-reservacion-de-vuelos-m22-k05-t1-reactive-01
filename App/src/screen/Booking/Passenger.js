@@ -6,6 +6,7 @@ import Title from '../../component/Title/Title';
 import PassengerPicker from '../../component/Booking/Passenger/Passengers';
 import ButtonForm from '../../component/Button/ButtonForm';
 import Header from '../../component/Header/Header';
+
 const Passenger = ({navigation}) => {
   return (
     <View style={styles.container}>
@@ -24,7 +25,12 @@ const Passenger = ({navigation}) => {
         <PassengerPicker />
       </View>
 
-      <ButtonForm title="Next" onPress={() => navigation.navigate('Final')} />
+      <ButtonForm
+        title="Next"
+        onPress={() => {
+          navigation.navigate('Final');
+        }}
+      />
     </View>
   );
 };

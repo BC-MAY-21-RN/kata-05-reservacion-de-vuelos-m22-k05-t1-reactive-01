@@ -4,13 +4,14 @@ import ButtonForm from '../../component/Button/ButtonForm';
 import Header from '../../component/Header/Header';
 import {useSelector} from 'react-redux';
 import {store} from '../../store/store';
-import {add_origin} from '../../store/Slice/OriginSlice/OriginSlice';
+import {add_origin} from '../../store/Slice/FlightSlice/FlightSlice';
 import SelectList from 'react-native-dropdown-select-list';
 import {styles} from './style';
 
 const From = ({navigation}) => {
   const [selected, setSelected] = useState();
-
+  //const state = useSelector(state => state.counter);
+  console.log(selected);
   const data = [
     {key: '1', value: 'Jammu & Kashmir'},
     {key: '2', value: 'Gujrat'},
@@ -33,9 +34,7 @@ const From = ({navigation}) => {
         <ButtonForm
           title="Next"
           onPress={() => {
-            console.log(selected + 'from'),
-              store.dispatch(add_origin(selected)),
-              navigation.navigate('To');
+            store.dispatch(add_origin(selected)), navigation.navigate('To');
           }}
         />
       </View>

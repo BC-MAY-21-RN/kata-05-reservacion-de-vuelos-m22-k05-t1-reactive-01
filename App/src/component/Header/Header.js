@@ -16,8 +16,7 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red',
-
+    height: 50,
   },
   button: {
     height: 40,

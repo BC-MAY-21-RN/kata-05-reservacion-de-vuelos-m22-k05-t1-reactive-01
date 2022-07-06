@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
   container: {
     height: themeStyle.HEIGHT_SCREEN,
     marginHorizontal: 20,
-    flexWrap: 'nowrap',
   },
   input: {
     borderBottomColor: 'grey',
