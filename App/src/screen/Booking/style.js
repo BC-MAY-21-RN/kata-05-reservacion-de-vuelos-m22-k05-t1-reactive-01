@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
   },
   content: {
     height: 300,
-    backgroundColor: 'blue',
   },
   boxStyles: {
     borderRadius: 0,

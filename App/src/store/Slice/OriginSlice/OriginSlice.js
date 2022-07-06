@@ -7,6 +7,9 @@ const originSlice = createSlice({
     add_origin: (state, {payload}) => {
       state.push(payload);
     },
+    del_origin: (state, {payload}) => {
+      state.pop(payload);
+    },
   },
 });
 

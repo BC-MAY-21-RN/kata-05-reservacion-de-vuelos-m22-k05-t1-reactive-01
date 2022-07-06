@@ -9,8 +9,7 @@ import SelectList from 'react-native-dropdown-select-list';
 import {styles} from './style';
 
 const From = ({navigation}) => {
-  const state = useSelector(state => state.origin);
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState();
 
   const data = [
     {key: '1', value: 'Jammu & Kashmir'},
@@ -33,10 +32,11 @@ const From = ({navigation}) => {
       <View style={styles.buttonContainer}>
         <ButtonForm
           title="Next"
-          onPress={
-            (() => store.dispatch(add_origin(setSelected)),
-            navigation.navigate('To'))
-          }
+          onPress={() => {
+            console.log(selected + 'from'),
+              store.dispatch(add_origin(selected)),
+              navigation.navigate('To');
+          }}
         />
       </View>
     </View>

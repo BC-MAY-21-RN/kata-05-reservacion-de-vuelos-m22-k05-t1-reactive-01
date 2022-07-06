@@ -16,7 +16,7 @@ export default function mainStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="SignIn"
+        initialRouteName="Home"
         screenOptions={{
           headerShown: false,
         }}>
