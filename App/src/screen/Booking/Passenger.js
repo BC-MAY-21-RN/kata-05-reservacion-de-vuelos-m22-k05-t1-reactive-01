@@ -6,22 +6,19 @@ import Title from '../../component/Title/Title';
 import PassengerPicker from '../../component/Booking/Passenger/Passengers';
 import ButtonForm from '../../component/Button/ButtonForm';
 import Header from '../../component/Header/Header';
-import {store} from '../../store/store';
-import {del_passenger} from '../../store/Slice/FlightSlice/FlightSlice';
+
 const Passenger = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header
-        navigation={navigation}
-        onPress={(() => store.dispatch(del_passenger()), navigation.goBack())}
-      />
+      <Header navigation={navigation} onPress={() => navigation.goBack()} />
       <FlightsCard
         date="20/10/2020"
-        iso_destiny="AAA"
-        destiny="Bogota"
-        origin="Argentina"
-        iso_origin="ARG"
-        passagers="passenger 5"
+        iataCodeFrom="AAA"
+        to="Bogota"
+        from="Argentina"
+        iataCodeTo="ARG"
+        titlePassagers="passagers"
+        passagers="5"
       />
       <Title title="How many passengers?" />
       <View style={styles.content}>
