@@ -7,17 +7,15 @@ import {store} from '../../store/store';
 import {add_origin} from '../../store/Slice/FlightSlice/FlightSlice';
 import SelectList from 'react-native-dropdown-select-list';
 import {styles} from './style';
+import DataJson from '../../database/data.json';
+
+import useFrom from '../../Hook/useFrom';
 
 const From = ({navigation}) => {
-  const [selected, setSelected] = useState();
-  //const state = useSelector(state => state.counter);
-  console.log(selected);
-  const data = [
-    {key: '1', value: 'Jammu & Kashmir'},
-    {key: '2', value: 'Gujrat'},
-    {key: '3', value: 'Maharashtra'},
-    {key: '4', value: 'Goa'},
-  ];
+  const {selected, setSelected, matchCountry} = useFrom();
+  const from = matchCountry(selected);
+
+  //console.log(from);
   return (
     <View style={styles.contaienr}>
       <Header navigation={navigation} onPress={() => navigation.goBack()} />
@@ -25,7 +23,7 @@ const From = ({navigation}) => {
       <View style={styles.content}>
         <SelectList
           setSelected={setSelected}
-          data={data}
+          data={DataJson}
           search={true}
           boxStyles={styles.boxStyles}
         />
@@ -34,7 +32,7 @@ const From = ({navigation}) => {
         <ButtonForm
           title="Next"
           onPress={() => {
-            store.dispatch(add_origin(selected)), navigation.navigate('To');
+            store.dispatch(add_origin(from)), navigation.navigate('To');
           }}
         />
       </View>

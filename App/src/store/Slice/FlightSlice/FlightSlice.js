@@ -10,21 +10,18 @@ const flightSlice = createSlice({
   },
   reducers: {
     add_origin: (state, {payload}) => {
-      console.log(payload);
       state.origin = payload;
     },
     del_origin: state => {
       state.origin = '';
     },
     add_destiny: (state, {payload}) => {
-      console.log(payload);
       state.destiny = payload;
     },
     del_destiny: state => {
       state.destiny = '';
     },
     add_date: (state, {payload}) => {
-      console.log(payload);
       state.date = payload;
     },
     del_date: state => {

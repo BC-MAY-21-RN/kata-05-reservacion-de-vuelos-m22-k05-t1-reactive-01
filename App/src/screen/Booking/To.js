@@ -7,17 +7,13 @@ import ButtonForm from '../../component/Button/ButtonForm';
 import SelectList from 'react-native-dropdown-select-list';
 import {store} from '../../store/store';
 import {add_destiny} from '../../store/Slice/FlightSlice/FlightSlice';
+import DataJson from '../../database/data.json';
 
+import useFrom from '../../Hook/useFrom';
 const To = ({navigation}) => {
-  const [selected, setSelected] = useState();
-
-  const data = [
-    {key: '1', value: 'Jammu & Kashmir'},
-    {key: '2', value: 'Gujrat'},
-    {key: '3', value: 'Maharashtra'},
-    {key: '4', value: 'Goa'},
-  ];
-  console.log(store.getState());
+  const {selected, setSelected, matchCountry} = useFrom();
+  const to = matchCountry(selected);
+  //console.log(to);
   return (
     <View style={styles.container}>
       <Header navigation={navigation} onPress={() => navigation.goBack()} />
@@ -26,7 +22,7 @@ const To = ({navigation}) => {
       <View style={styles.content}>
         <SelectList
           setSelected={setSelected}
-          data={data}
+          data={DataJson}
           search={true}
           boxStyles={styles.boxStyles}
         />
@@ -35,8 +31,7 @@ const To = ({navigation}) => {
         <ButtonForm
           title="Next"
           onPress={() => {
-            store.dispatch(add_destiny(selected)),
-              navigation.navigate('SelectDate');
+            store.dispatch(add_destiny(to)), navigation.navigate('SelectDate');
           }}
         />
       </View>
