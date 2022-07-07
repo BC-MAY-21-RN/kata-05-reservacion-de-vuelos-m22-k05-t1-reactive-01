@@ -7,7 +7,7 @@ import ButtonForm from '../../component/Button/ButtonForm';
 import Header from '../../component/Header/Header';
 import {store} from '../../store/store';
 import {add_date} from '../../store/Slice/FlightSlice/FlightSlice';
-
+import DatePicker from 'react-native-modern-datepicker';
 const SelectDate = ({navigation}) => {
   const [disable, setDisable] = useState(false);
   const [fecha, setFecha] = useState();
@@ -29,6 +29,8 @@ const SelectDate = ({navigation}) => {
     setFecha(date);
     setDisable(true);
   };
+
+  console.log(fecha);
   return (
     <View style={styles.container}>
       <Header navigation={navigation} onPress={() => navigation.goBack()} />
@@ -39,13 +41,21 @@ const SelectDate = ({navigation}) => {
         iataCodeTo="ARG"
       />
       <Title title="Select date" />
-      <View style={styles.content}></View>
+      <View style={styles.content}>
+        <DatePicker
+          current={currentDate}
+          minimumDate={currentDate}
+          onSelectedChange={handleDate}
+          mode="calendar"
+          options={{backgroundColor: 'transparent'}}
+          minuteInterval={30}
+        />
+      </View>
       <View>
         <ButtonForm
           title={'Next'}
           onPress={() => {
-            store.dispatch(add_date('11/2/33')),
-              navigation.navigate('Passenger');
+            store.dispatch(add_date(fecha)), navigation.navigate('Passenger');
           }}
         />
       </View>
