@@ -6,7 +6,7 @@ import {styles} from './style';
 import ButtonForm from '../../component/Button/ButtonForm';
 import Header from '../../component/Header/Header';
 import {store} from '../../store/store';
-import {add_date} from '../../store/Slice/FlightSlice/FlightSlice';
+import {add_date, del_date} from '../../store/Slice/FlightSlice/FlightSlice';
 
 const SelectDate = ({navigation}) => {
   const [disable, setDisable] = useState(false);
@@ -31,12 +31,15 @@ const SelectDate = ({navigation}) => {
   };
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} onPress={() => navigation.goBack()} />
+      <Header
+        navigation={navigation}
+        onPress={(() => store.dispatch(del_date()), navigation.goBack())}
+      />
       <FlightsCard
-        iataCodeFrom="AAA"
-        to="Bogota"
-        from="Argentina"
-        iataCodeTo="ARG"
+        iso_destiny="AAA"
+        iso_origin="ARG"
+        destiny="Bogota"
+        origin="Argentina"
       />
       <Title title="Select date" />
       <View style={styles.content}></View>

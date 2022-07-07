@@ -6,7 +6,10 @@ import Header from '../../component/Header/Header';
 import ButtonForm from '../../component/Button/ButtonForm';
 import SelectList from 'react-native-dropdown-select-list';
 import {store} from '../../store/store';
-import {add_destiny} from '../../store/Slice/FlightSlice/FlightSlice';
+import {
+  add_destiny,
+  del_destiny,
+} from '../../store/Slice/FlightSlice/FlightSlice';
 
 const To = ({navigation}) => {
   const [selected, setSelected] = useState();
@@ -17,11 +20,13 @@ const To = ({navigation}) => {
     {key: '3', value: 'Maharashtra'},
     {key: '4', value: 'Goa'},
   ];
-  console.log(store.getState());
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} onPress={() => navigation.goBack()} />
-      <FlightsCard iataCodeFrom="AAA" from="Argentina" />
+      <Header
+        navigation={navigation}
+        onPress={(() => )}
+      />
+      <FlightsCard iso_origin="AAA" origin="Argentina" />
       <Text style={styles.title}>"Where will you be flying to?"</Text>
       <View style={styles.content}>
         <SelectList
