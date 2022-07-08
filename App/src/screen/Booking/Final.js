@@ -23,21 +23,21 @@ const Final = ({navigation}) => {
         onPress={() => navigation.goBack()}
       />
       <Title title="Your request was received." />
-      <View style={styles.content}></View>
-      <FlightsCard
-        date={date}
-        iataCodeFrom={destiny.iso_airport}
-        to={destiny.country}
-        from={origin.country}
-        iataCodeTo={origin.iso_airport}
-        titlePassagers="passagers"
-        passagers={passenger}
-      />
-      <View style={styles.buttonContainer}>
-        <ButtonForm
-          title="Finish"
-          onPress={() => saveFlight(state, navigation)}
+      <View style={styles.content}>
+        <FlightsCard
+          date={date}
+          iataCodeFrom={destiny.iso_airport}
+          to={destiny.country}
+          from={origin.country}
+          iataCodeTo={origin.iso_airport}
+          passenger={'passenger: ' + passenger}
         />
+        <View style={styles.buttonContainer}>
+          <ButtonForm
+            title="Finish"
+            onPress={() => saveFlight(state, navigation)}
+          />
+        </View>
       </View>
     </View>
   );
