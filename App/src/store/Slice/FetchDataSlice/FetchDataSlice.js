@@ -4,7 +4,7 @@ const fetchedata = createSlice({
   name: 'fetchedata',
   initialState: [],
   reducers: {
-    add_collection: (state, {payload}) => {
+    add_data: (state, {payload}) => {
       state.push(payload);
     },
   },

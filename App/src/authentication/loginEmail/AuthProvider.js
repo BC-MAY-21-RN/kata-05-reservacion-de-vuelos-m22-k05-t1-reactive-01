@@ -16,8 +16,8 @@ export const logIn = (email, password, navigation) => {
   }, 3000);
 };
 
-export const logout = ({navigation}) => {
-  auth()
+export const logout = async ({navigation}) => {
+  await auth()
     .signOut()
     .then(navigation.navigate('Login'))
     .catch(error => {

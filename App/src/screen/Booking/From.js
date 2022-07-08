@@ -16,7 +16,11 @@ const From = ({navigation}) => {
   const from = matchCountry(selected);
   return (
     <View style={styles.contaienr}>
-      <Header navigation={navigation} onPress={() => navigation.goBack()} />
+      <Header
+        type={false}
+        navigation={navigation}
+        onPress={() => navigation.goBack()}
+      />
       <Text style={styles.title}>"Where are you now?"</Text>
       <View style={styles.content}>
         <SelectList

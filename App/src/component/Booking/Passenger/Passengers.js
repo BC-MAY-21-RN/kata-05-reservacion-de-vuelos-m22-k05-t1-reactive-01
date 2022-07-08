@@ -4,6 +4,9 @@ import SmoothPicker from 'react-native-smooth-picker';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import styles from './PassengersStyle';
 
+import RrArrow from '../../../assets/icon/right-arrow.svg';
+import LlArrow from '../../../assets/icon/left-arrow.svg';
+
 import {store} from '../../../store/store';
 import {add_passenger} from '../../../store/Slice/FlightSlice/FlightSlice';
 
@@ -31,13 +34,9 @@ const Item = React.memo(({opacity, selected, vertical, fontSize, name}) => (
         width: vertical ? 250 : 'auto',
       },
     ]}>
-    {selected && (
-      <IonIcon name="chevron-forward-outline" style={styles.backIcon} />
-    )}
+    {selected && <LlArrow width={25} height={25} />}
     <Text style={[styles.text, {fontSize}]}>{name}</Text>
-    {selected && (
-      <IonIcon name="chevron-back-outline" style={styles.backIcon} />
-    )}
+    {selected && <RrArrow width={25} height={25} />}
   </View>
 ));
 
@@ -77,7 +76,6 @@ const Passenger = ({index}) => {
           data={dataPassengers}
           scrollAnimation
           onSelected={({item, index}) => {
-            //Agregar(index);
             store.dispatch(add_passenger(index));
           }}
           renderItem={option => ItemToRender(option, selected, true)}

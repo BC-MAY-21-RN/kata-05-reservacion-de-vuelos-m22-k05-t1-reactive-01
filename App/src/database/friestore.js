@@ -1,15 +1,15 @@
 import firestore from '@react-native-firebase/firestore';
-//import auth from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 import {clean_store} from '../store/Slice/FlightSlice/FlightSlice';
 import {store} from '../store/store';
 import {add_data} from '../store/Slice/FetchDataSlice/FetchDataSlice';
 const db = firestore();
 //const current = auth().currentUser;
-/*
+
 export const getJourney = async () => {
   await db
     .collection('journey')
-    .where('uid', '==', current.uid)
+    .where('uid', '==', 'ptwCl9aXTPh2v7Yt3c0BMKh25kw1')
     .get()
     .then(querySnapshot => {
       querySnapshot.docs.forEach(element => {
@@ -17,7 +17,28 @@ export const getJourney = async () => {
       });
     });
 };
-*/
+export const getData = async () => {
+  const current = auth().currentUser;
+  try {
+    const arrayFlights = [];
+    const usersQuerySnapshot = await firestore()
+      .collection('journey')
+      .where('uid', '==', current.uid)
+      .get();
+    usersQuerySnapshot.forEach(documentSnapshot => {
+      //  store.dispatch(
+      //    add_data({id: documentSnapshot.id, ...documentSnapshot.data()}),
+      //  );
+      arrayFlights.push({id: documentSnapshot.id, ...documentSnapshot.data()});
+    });
+    return arrayFlights;
+    //console.log(store.fetchedata);
+  } catch (error) {
+    const errorName = 'failure when trying to display flights';
+    // console.log(`ERROR:${errorName}    DESCRIPTION:${error}`);
+  }
+};
+
 export const saveFlight = async (state, navigation) => {
   const {origin, destiny, date, passenger} = state;
   await db
@@ -31,6 +52,7 @@ export const saveFlight = async (state, navigation) => {
     })
     .then(() => {
       navigation.navigate('Home');
+      store.dispatch(clean_store());
     });
 };
 /*

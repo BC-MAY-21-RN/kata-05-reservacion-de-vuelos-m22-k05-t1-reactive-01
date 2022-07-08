@@ -19,7 +19,11 @@ const To = ({navigation}) => {
   const to = matchCountry(selected);
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} onPress={() => navigation.goBack()} />
+      <Header
+        type={false}
+        navigation={navigation}
+        onPress={() => navigation.goBack()}
+      />
       <FlightsCard iataCodeFrom={iso_airport} from={country} />
       <Text style={styles.title}>"Where will you be flying to?"</Text>
       <View style={styles.content}>

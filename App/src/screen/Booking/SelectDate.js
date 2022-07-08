@@ -35,7 +35,11 @@ const SelectDate = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} onPress={() => navigation.goBack()} />
+      <Header
+        type={false}
+        navigation={navigation}
+        onPress={() => navigation.goBack()}
+      />
       <FlightsCard
         iataCodeFrom={destiny.iso_airport}
         to={destiny.country}

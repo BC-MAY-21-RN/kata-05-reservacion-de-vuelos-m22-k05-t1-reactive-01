@@ -13,7 +13,11 @@ const Passenger = ({navigation}) => {
   const {origin, destiny, date} = state;
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} onPress={() => navigation.goBack()} />
+      <Header
+        type={false}
+        navigation={navigation}
+        onPress={() => navigation.goBack()}
+      />
       <FlightsCard
         date={date}
         iataCodeFrom={destiny.iso_airport}

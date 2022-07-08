@@ -17,7 +17,11 @@ const Final = ({navigation}) => {
   const {origin, destiny, date, passenger} = state;
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} onPress={() => navigation.goBack()} />
+      <Header
+        type={false}
+        navigation={navigation}
+        onPress={() => navigation.goBack()}
+      />
       <Title title="Your request was received." />
       <View style={styles.content}></View>
       <FlightsCard
