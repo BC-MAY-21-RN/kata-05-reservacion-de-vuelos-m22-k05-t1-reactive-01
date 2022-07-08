@@ -16,7 +16,7 @@ export default function mainStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="SelectDate"
+        initialRouteName="From"
         screenOptions={{
           headerShown: false,
         }}>

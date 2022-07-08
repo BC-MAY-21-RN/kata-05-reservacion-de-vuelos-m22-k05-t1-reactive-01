@@ -10,14 +10,17 @@ import {add_destiny} from '../../store/Slice/FlightSlice/FlightSlice';
 import DataJson from '../../database/data.json';
 
 import useFrom from '../../Hook/useFrom';
+import {useSelector} from 'react-redux';
+
 const To = ({navigation}) => {
+  const state = useSelector(state => state.flight);
+  const {iso_airport, country} = state.origin;
   const {selected, setSelected, matchCountry} = useFrom();
   const to = matchCountry(selected);
-  //console.log(to);
   return (
     <View style={styles.container}>
       <Header navigation={navigation} onPress={() => navigation.goBack()} />
-      <FlightsCard iataCodeFrom="AAA" from="Argentina" />
+      <FlightsCard iataCodeFrom={iso_airport} from={country} />
       <Text style={styles.title}>"Where will you be flying to?"</Text>
       <View style={styles.content}>
         <SelectList

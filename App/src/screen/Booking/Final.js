@@ -1,38 +1,38 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import Title from '../../component/Title/Title';
 import FlightsCard from '../../component/FlightCard/flightsCard';
 import ButtonForm from '../../component/Button/ButtonForm';
-import Header from '../../component/Header/Header';
 import {styles} from './style';
+
+import Header from '../../component/Header/Header';
 import store from '../../store/store';
 import {clean_store} from '../../store/Slice/FlightSlice/FlightSlice';
 import {useSelector} from 'react-redux';
 
+import {saveFlight} from '../../database/friestore';
+
 const Final = ({navigation}) => {
   const state = useSelector(state => state.flight);
-  console.log(state);
-
+  const {origin, destiny, date, passenger} = state;
   return (
     <View style={styles.container}>
       <Header navigation={navigation} onPress={() => navigation.goBack()} />
       <Title title="Your request was received." />
-      <View style={styles.content}>
-        <FlightsCard
-          date="20/10/2020"
-          iataCodeFrom="AAA"
-          to="Bogota"
-          from="Argentina"
-          iataCodeTo="ARG"
-          titlePassagers="passagers"
-          passagers="5"
-        />
-      </View>
-
+      <View style={styles.content}></View>
+      <FlightsCard
+        date={date}
+        iataCodeFrom={destiny.iso_airport}
+        to={destiny.country}
+        from={origin.country}
+        iataCodeTo={origin.iso_airport}
+        titlePassagers="passagers"
+        passagers={passenger}
+      />
       <View style={styles.buttonContainer}>
         <ButtonForm
           title="Finish"
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => saveFlight(state, navigation)}
         />
       </View>
     </View>
@@ -40,3 +40,6 @@ const Final = ({navigation}) => {
 };
 
 export default Final;
+/*
+
+*/

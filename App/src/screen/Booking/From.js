@@ -14,8 +14,6 @@ import useFrom from '../../Hook/useFrom';
 const From = ({navigation}) => {
   const {selected, setSelected, matchCountry} = useFrom();
   const from = matchCountry(selected);
-
-  //console.log(from);
   return (
     <View style={styles.contaienr}>
       <Header navigation={navigation} onPress={() => navigation.goBack()} />

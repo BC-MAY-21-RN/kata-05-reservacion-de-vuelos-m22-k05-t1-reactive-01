@@ -8,6 +8,7 @@ import Header from '../../component/Header/Header';
 import {store} from '../../store/store';
 import {add_date} from '../../store/Slice/FlightSlice/FlightSlice';
 import DatePicker from 'react-native-modern-datepicker';
+import {useSelector} from 'react-redux';
 const SelectDate = ({navigation}) => {
   const [disable, setDisable] = useState(false);
   const [fecha, setFecha] = useState();
@@ -29,16 +30,17 @@ const SelectDate = ({navigation}) => {
     setFecha(date);
     setDisable(true);
   };
+  const state = useSelector(state => state.flight);
+  const {origin, destiny} = state;
 
-  console.log(fecha);
   return (
     <View style={styles.container}>
       <Header navigation={navigation} onPress={() => navigation.goBack()} />
       <FlightsCard
-        iataCodeFrom="AAA"
-        to="Bogota"
-        from="Argentina"
-        iataCodeTo="ARG"
+        iataCodeFrom={destiny.iso_airport}
+        to={destiny.country}
+        from={origin.country}
+        iataCodeTo={origin.iso_airport}
       />
       <Title title="Select date" />
       <View style={styles.content}>

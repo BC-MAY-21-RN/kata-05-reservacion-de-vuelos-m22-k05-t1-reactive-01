@@ -1,13 +1,15 @@
 import firestore from '@react-native-firebase/firestore';
-import auth from '@react-native-firebase/auth';
+//import auth from '@react-native-firebase/auth';
 import {clean_store} from '../store/Slice/FlightSlice/FlightSlice';
 import {store} from '../store/store';
 import {add_data} from '../store/Slice/FetchDataSlice/FetchDataSlice';
-export const getJourney = () => {
-  const currentUser = auth().currentUser;
-  firestore()
+const db = firestore();
+//const current = auth().currentUser;
+/*
+export const getJourney = async () => {
+  await db
     .collection('journey')
-    .where('uid', '==', currentUser.uid)
+    .where('uid', '==', current.uid)
     .get()
     .then(querySnapshot => {
       querySnapshot.docs.forEach(element => {
@@ -15,8 +17,24 @@ export const getJourney = () => {
       });
     });
 };
-
-export const saveFlight = state => {
+*/
+export const saveFlight = async (state, navigation) => {
+  const {origin, destiny, date, passenger} = state;
+  await db
+    .collection('journey')
+    .add({
+      origin: origin,
+      destiny: destiny,
+      date: date,
+      passenger: passenger,
+      uid: 'ptwCl9aXTPh2v7Yt3c0BMKh25kw1',
+    })
+    .then(() => {
+      navigation.navigate('Home');
+    });
+};
+/*
+export const saveFlight = (state) => {
   const currentUser = auth().currentUser;
   firestore()
     .collection('journey')
@@ -29,7 +47,6 @@ export const saveFlight = state => {
     })
     .then({clean_store});
 };
-
 export const save = state => {
   const currentUser = auth().currentUser;
   const {origin, destiny, date, passenger} = state;
@@ -44,3 +61,4 @@ export const save = state => {
     })
     .then({clean_store});
 };
+*/
