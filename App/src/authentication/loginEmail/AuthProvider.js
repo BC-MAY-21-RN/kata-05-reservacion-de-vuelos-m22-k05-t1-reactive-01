@@ -16,12 +16,11 @@ export const logIn = (email, password, navigation) => {
   }, 3000);
 };
 
-export const logout = (navigation) => {
-  try {
-    auth()
-      .signOut()
-      .then(() => navigation.navigate('Login'));
-  } catch (error) {
-    Alert.alert('Error: ' + error.toString());
-  }
+export const logout = navigation => {
+  auth()
+    .signOut()
+    .then(() => navigation.navigate('Login'))
+    .catch(error => {
+      Alert.alert('Error: ' + error.toString());
+    });
 };
