@@ -6,16 +6,15 @@ import {useSelector} from 'react-redux';
 import {store} from '../../store/store';
 import {add_origin} from '../../store/Slice/FlightSlice/FlightSlice';
 import SelectList from 'react-native-dropdown-select-list';
-import {styles} from './style';
 import DataJson from '../../database/data.json';
-
+import {styles} from './style';
 import useFrom from '../../Hook/useFrom';
 
 const From = ({navigation}) => {
   const {selected, setSelected, matchCountry} = useFrom();
   const from = matchCountry(selected);
   return (
-    <View style={styles.contaienr}>
+    <View style={styles.container}>
       <Header
         type={false}
         navigation={navigation}
@@ -28,6 +27,7 @@ const From = ({navigation}) => {
           data={DataJson}
           search={true}
           boxStyles={styles.boxStyles}
+          dropdownItemStyles={styles.dropdownStyles}
         />
       </View>
       <View style={styles.buttonContainer}>

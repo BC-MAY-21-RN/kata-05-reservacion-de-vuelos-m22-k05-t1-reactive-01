@@ -26,9 +26,12 @@ export const styles = StyleSheet.create({
     borderColor: 'transparent',
     borderBottomColor: 'grey',
   },
+  dropdownStyles: {
+    borderColor: 'transparent',
+  },
   buttonContainer: {
     position: 'absolute',
-    bottom: 0,
+    marginTop: themeStyle.HEIGHT_SCREEN / 1.3,
     width: '100%',
   },
 });

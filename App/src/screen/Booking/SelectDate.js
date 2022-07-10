@@ -40,24 +40,26 @@ const SelectDate = ({navigation}) => {
         navigation={navigation}
         onPress={() => navigation.goBack()}
       />
-      <FlightsCard
-        iataCodeFrom={destiny.iso_airport}
-        to={destiny.country}
-        from={origin.country}
-        iataCodeTo={origin.iso_airport}
-      />
-      <Title title="Select date" />
       <View style={styles.content}>
-        <DatePicker
-          current={currentDate}
-          minimumDate={currentDate}
-          onSelectedChange={handleDate}
-          mode="calendar"
-          options={{backgroundColor: 'transparent'}}
-          minuteInterval={30}
+        <FlightsCard
+          iataCodeFrom={destiny.iso_airport}
+          to={destiny.country}
+          from={origin.country}
+          iataCodeTo={origin.iso_airport}
         />
+        <Title title="Select date" />
+        <View style={styles.datePicker}>
+          <DatePicker
+            current={currentDate}
+            minimumDate={currentDate}
+            onSelectedChange={handleDate}
+            mode="calendar"
+            options={{backgroundColor: 'transparent'}}
+            minuteInterval={30}
+          />
+        </View>
       </View>
-      <View>
+      <View style={styles.buttonContainer}>
         <ButtonForm
           title={'Next'}
           onPress={() => {

@@ -32,6 +32,7 @@ const To = ({navigation}) => {
           data={DataJson}
           search={true}
           boxStyles={styles.boxStyles}
+          dropdownStyles={styles.dropdownStyles}
         />
       </View>
       <View style={styles.buttonCon}>

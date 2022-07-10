@@ -32,12 +32,12 @@ const Final = ({navigation}) => {
           iataCodeTo={origin.iso_airport}
           passenger={'passenger: ' + passenger}
         />
-        <View style={styles.buttonContainer}>
-          <ButtonForm
-            title="Finish"
-            onPress={() => saveFlight(state, navigation)}
-          />
-        </View>
+      </View>
+      <View style={styles.buttonContainer}>
+        <ButtonForm
+          title="Finish"
+          onPress={() => saveFlight(state, navigation)}
+        />
       </View>
     </View>
   );

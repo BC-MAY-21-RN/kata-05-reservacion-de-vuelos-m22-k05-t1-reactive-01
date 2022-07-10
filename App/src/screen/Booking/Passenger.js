@@ -30,12 +30,14 @@ const Passenger = ({navigation}) => {
         <PassengerPicker />
       </View>
 
-      <ButtonForm
-        title="Next"
-        onPress={() => {
-          navigation.navigate('Final');
-        }}
-      />
+      <View style={styles.buttonContainer}>
+        <ButtonForm
+          title="Next"
+          onPress={() => {
+            navigation.navigate('Final');
+          }}
+        />
+      </View>
     </View>
   );
 };
