@@ -3,7 +3,7 @@ import React from 'react';
 
 import Back from '../../assets/icon/back.svg';
 import Logout from '../../assets/icon/logout.svg';
-
+import {styles} from './style';
 const Header = ({navigation, onPress, type}) => {
   return (
     <View style={styles.container}>
@@ -19,14 +19,3 @@ const Header = ({navigation, onPress, type}) => {
 };
 
 export default Header;
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 15,
-    height: 50,
-  },
-  button: {
-    height: 40,
-    width: 40,
-  },
-});

@@ -25,29 +25,11 @@ export default function useFligts() {
         setIsLoading(false);
       }
     } catch (error) {
-      setIsLoading(false)
-      setIsSuccess(false)
-      console.log(error);
+      setIsLoading(false);
+      setIsSuccess(false);
+      alert(error);
     }
   };
 
   return {fligths, getDataBd, isSuccess, isLoading};
 }
-/*
-  useEffect(() => {
-    const query = getDataBd();
-  }, [fligths]);
-
-  const getDataBd = async () => {
-    const {arrayFlights, usersQuerySnapshot} = await getData();
-    if (arrayFlights.length > 0) {
-      setFlights(arrayFlights);
-    } else {
-      alert('no hay mas datos');
-    }
-    return usersQuerySnapshot;
-  };
-
-  return {fligths};
-}
-*/
