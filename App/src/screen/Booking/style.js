@@ -3,15 +3,35 @@ import themeStyle from '../../styles/theme.style';
 
 export const styles = StyleSheet.create({
   container: {
-    marginHorizontal: themeStyle.WIDTH_SCREEN - 20,
-    marginTop: themeStyle.HEIGHT_SCREEN * 0.01,
-    backgroundColor: 'red',
+    height: themeStyle.HEIGHT_SCREEN,
+    marginHorizontal: 20,
   },
   input: {
-    marginTop: themeStyle.HEIGHT_SCREEN / 10,
     borderBottomColor: 'grey',
     borderBottomWidth: 2,
     color: 'black',
     fontSize: 15,
+  },
+  title: {
+    marginTop: 30,
+    color: 'black',
+    fontSize: 35,
+    fontWeight: themeStyle.FONT_WEIGHT_BLOD,
+  },
+  content: {
+    height: 300,
+  },
+  boxStyles: {
+    borderRadius: 0,
+    borderColor: 'transparent',
+    borderBottomColor: 'grey',
+  },
+  dropdownStyles: {
+    borderColor: 'transparent',
+  },
+  buttonContainer: {
+    position: 'absolute',
+    marginTop: themeStyle.HEIGHT_SCREEN / 1.3,
+    width: '100%',
   },
 });

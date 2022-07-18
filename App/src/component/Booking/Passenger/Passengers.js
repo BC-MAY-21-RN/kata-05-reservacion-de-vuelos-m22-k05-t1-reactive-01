@@ -4,7 +4,13 @@ import SmoothPicker from 'react-native-smooth-picker';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import styles from './PassengersStyle';
 
-const dataPassengers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+import RrArrow from '../../../assets/icon/right-arrow.svg';
+import LlArrow from '../../../assets/icon/left-arrow.svg';
+
+import {store} from '../../../store/store';
+import {add_passenger} from '../../../store/Slice/FlightSlice/FlightSlice';
+
+const dataPassengers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 const opacities = {
   0: 1,
   1: 1,
@@ -28,13 +34,9 @@ const Item = React.memo(({opacity, selected, vertical, fontSize, name}) => (
         width: vertical ? 250 : 'auto',
       },
     ]}>
-    {selected && (
-      <IonIcon name="chevron-forward-outline" style={styles.backIcon} />
-    )}
+    {selected && <LlArrow width={25} height={25} />}
     <Text style={[styles.text, {fontSize}]}>{name}</Text>
-    {selected && (
-      <IonIcon name="chevron-back-outline" style={styles.backIcon} />
-    )}
+    {selected && <RrArrow width={25} height={25} />}
   </View>
 ));
 
@@ -62,7 +64,7 @@ function ItemToRender({item, index}, indexSelected, vertical) {
 }
 
 const Passenger = ({index}) => {
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.wrapperVertical}>
@@ -74,7 +76,7 @@ const Passenger = ({index}) => {
           data={dataPassengers}
           scrollAnimation
           onSelected={({item, index}) => {
-            setSelected(index);
+            store.dispatch(add_passenger(index));
           }}
           renderItem={option => ItemToRender(option, selected, true)}
           magnet

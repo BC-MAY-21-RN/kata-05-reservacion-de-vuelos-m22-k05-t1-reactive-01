@@ -1,28 +1,43 @@
-import {StyleSheet, Text, View, List} from 'react-native';
-import React, {useState} from 'react';
+import {View} from 'react-native';
+import React from 'react';
 import {styles} from './style';
 import FlightsCard from '../../component/FlightCard/flightsCard';
 import Title from '../../component/Title/Title';
-import ButtonNext from '../../component/Booking/ButtonNext.js/ButtonNext';
 import PassengerPicker from '../../component/Booking/Passenger/Passengers';
-const Passenger = () => {
-  //const [passengers, setPassengers] = useState(null);
+import ButtonForm from '../../component/Button/ButtonForm';
+import Header from '../../component/Header/Header';
+import {useSelector} from 'react-redux';
 
+const Passenger = ({navigation}) => {
+  const state = useSelector(state => state.flight);
+  const {origin, destiny, date} = state;
   return (
-    <View>
-      <Title title="How many passengers?" />
-
-      <FlightsCard
-        date="20/10/2020"
-        iataCodeFrom="AAA"
-        to="Bogota"
-        from="Argentina"
-        iataCodeTo="ARG"
-        titlePassagers="passagers"
-        passagers="5"
+    <View style={styles.container}>
+      <Header
+        type={false}
+        navigation={navigation}
+        onPress={() => navigation.goBack()}
       />
-      <PassengerPicker />
-      <ButtonNext status="next" />
+      <FlightsCard
+        date={date}
+        iataCodeFrom={destiny.iso_airport}
+        to={destiny.country}
+        from={origin.country}
+        iataCodeTo={origin.iso_airport}
+      />
+      <Title title="How many passengers?" />
+      <View style={styles.content}>
+        <PassengerPicker />
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <ButtonForm
+          title="Next"
+          onPress={() => {
+            navigation.navigate('Final');
+          }}
+        />
+      </View>
     </View>
   );
 };

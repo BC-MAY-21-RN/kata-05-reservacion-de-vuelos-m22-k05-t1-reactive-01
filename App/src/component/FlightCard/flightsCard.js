@@ -2,15 +2,7 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import {styles} from './style';
 import Icon from '../../assets/icon/avion.svg';
-const flightsCard = ({
-  date,
-  iataCodeTo,
-  iataCodeFrom,
-  to,
-  from,
-  titlePassagers,
-  passagers,
-}) => {
+const flightsCard = ({date, iataCodeTo, iataCodeFrom, to, from, passenger}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -28,9 +20,7 @@ const flightsCard = ({
       </View>
       <View style={styles.footer}>
         <Text style={styles.ftext}>{date}</Text>
-        <Text style={styles.ftext}>
-          {titlePassagers} {passagers}
-        </Text>
+        <Text style={styles.ftext}>{passenger}</Text>
       </View>
     </View>
   );

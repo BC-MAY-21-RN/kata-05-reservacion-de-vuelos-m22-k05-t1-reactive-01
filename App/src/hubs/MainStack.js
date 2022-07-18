@@ -16,13 +16,17 @@ export default function mainStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="SignIn"
+        initialRouteName="Login"
         screenOptions={{
           headerShown: false,
         }}>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="To" component={To} />
+        <Stack.Screen name="SelectDate" component={SelectDate} />
+        <Stack.Screen name="From" component={From} />
+        <Stack.Screen name="Final" component={Final} />
         <Stack.Screen name="Passenger" component={Passenger} />
       </Stack.Navigator>
     </NavigationContainer>

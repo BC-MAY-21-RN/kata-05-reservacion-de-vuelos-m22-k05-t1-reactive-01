@@ -1,7 +1,9 @@
 import {StyleSheet} from 'react-native';
 import themeStyle from '../../styles/theme.style';
 export const styles = StyleSheet.create({
-  container: {},
+  container: {
+    marginHorizontal: 20,
+  },
   button: {
     position: 'absolute',
     zIndex: 1,
